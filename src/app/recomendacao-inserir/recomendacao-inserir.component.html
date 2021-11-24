@@ -1,0 +1,11 @@
+<h2>Inserção de Recomendação</h2>
+<mat-card>
+  <mat-spinner *ngIf="estaCarregando"></mat-spinner>
+  <form (submit)="incluirRecomendacao(recomendacaoForm)" *ngIf="!estaCarregando" #recomendacaoForm="ngForm">
+    <mat-form-field>
+      <input required minlength="4" type="text" matInput placeholder="Descição" name="descricao" ngModel #descricao="ngModel" />
+      <mat-error>Digite uma recomendação válida</mat-error>
+    </mat-form-field>
+    <button color="accent" mat-raised-button>Inserir Recomendação</button>
+  </form>
+</mat-card>

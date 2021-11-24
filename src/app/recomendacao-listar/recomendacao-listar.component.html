@@ -1,0 +1,12 @@
+<mat-spinner *ngIf="estaCarregando"></mat-spinner>
+<mat-accordion *ngIf="recomendacoes.length > 0 && !estaCarregando">
+  <mat-expansion-panel *ngFor="let recomendacao of recomendacoes">
+    <mat-expansion-panel-header>
+      Descrição: {{ recomendacao.descricao }} - Data de criação: {{ recomendacao.dataCriacao }}
+    </mat-expansion-panel-header>
+    <mat-action-row>
+      <button mat-button color="warn" (click)="onDelete(recomendacao.id)">Remover</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="mat-body-1" style="text-align: center;" *ngIf="recomendacoes.length <= 0 && !estaCarregando">Nenhuma recomendação cadastrada</p>
